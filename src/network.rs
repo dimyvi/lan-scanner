@@ -21,7 +21,7 @@ pub fn get_range(from: &str, to: &str) -> Result<Vec<Ipv4Addr>> {
     let end_num = u32::from(end);
 
     if start_num > end_num {
-        anyhow::bail!("начальный IP должен быть меньше или равен конечному");
+        anyhow::bail!("the start IP address must be less than or equal to the end IP address");
     }
 
     Ok((start_num..=end_num).map(Ipv4Addr::from).collect())
